@@ -1,0 +1,3 @@
+Descripcion,Precio compra,Precio venta,Numero unidades,Stock maximo,Stock seguridad
+"pechuga","20.0","30.0","20","100","10"
+"salmon","30.0","50.0","50","40","10"
