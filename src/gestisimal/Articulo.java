@@ -143,6 +143,7 @@ public class Articulo {
     return numeroUnidades;
   }
 /**
+ * establece el numero de unidades
  * @param cantidad
  * @throws NumeroNegativoException cuando la cantidad pasada es un numero negativo
  */
