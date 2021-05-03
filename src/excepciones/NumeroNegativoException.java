@@ -1,6 +1,9 @@
 package excepciones;
 
-
+/**
+ * Salta si el numero es negativo
+ * @author sergio Vera Jurado
+ */
 public class NumeroNegativoException extends Exception {
 
   /**

@@ -4,41 +4,59 @@ import excepciones.NumeroNegativoException;
 
 
 /**
- * Clase Artículo que representa a los art�culos del almac�n. Su estado ser�: c�digo, descripci�n,
- * precio de compra, precio de venta, n�mero de unidades (nunca negativas), stock de seguridad y
- * stock máximo. Como comportamiento: Consideramos que el c�digo va a generarse de forma autom�tica
- * en el constructor, asi no puede haber dos artículos con el mismo c�digo. Esto implica que no
- * puede modificarse el código de un artículo, si el resto de las propiedades. Podremos mostrar el
- * artículo, por lo que necesito una representación del art�culo en forma de cadena (toString).
- */
-
-/**
- * 
+ * Clase Articulo que representa a los articulos del almacen. Su estado sera: codigo, descripcion,
+ * precio de compra, precio de venta, numero de unidades (nunca negativas), stock de seguridad y
+ * stock maximo. Como comportamiento: Consideramos que el codigo va a generarse de forma automatica
+ * en el constructor, asi no puede haber dos artículos con el mismo codigo. Esto implica que no
+ * puede modificarse el codigo de un artículo, si el resto de las propiedades. Podremos mostrar el
+ * articulo, por lo que necesito una representación del artículo en forma de cadena (toString).
  * @author Sergio Vera Jurado
  * @version 1.1
  * 
  */
 public class Articulo {
+  /**
+   * Incremento que permite identificar al articulo de forma inequivoca
+   */
   private static int codigoGenerar = 0;
+  /**
+   * Identifica al articulo
+   */
   private int codigo;
+  /**
+   * Precio al que se compra un articulo
+   */
   private double precioCompra;
+  /**
+   * Precio al que se vende un articulo
+   */
   private double precioVenta;
+  /**
+   * una pequeña descripcion del articulo
+   */
   private String descripcion;
+  /**
+   * Numero de unidades disponibles de un articulo
+   */
   private int numeroUnidades;
+  /**
+   * Stock minimo de un articulo (No es obligatorio que sea inferior al numero de unidades)
+   */
   private int stockSeguridad;
+  /**
+   * Stock maximo de un articulo (No es obligatorio que sea inferior al numero de unidades)
+   */
   private int stockMaximo;
 
   /**
-   * 
-   * @param precioCompra
-   * @param precioVenta
-   * @param descripcion
-   * @param numeroUnidades
-   * @param stockSeguridad
-   * @param stockMaximo
-   * @throws NumeroNegativoException
-   * @throws StockMaximoExcedidoException
-   * @throws StockMinimoIncumplidoException
+   * Construtor de la clase Articulo
+   * @param precioCompra El precio de compra de un articulo
+   * @param precioVenta El precio de venta de un articulo
+   * @param descripcion Descripción de un articulo
+   * @param numeroUnidades Cantidades disponibles del nuevo articulo
+   * @param stockSeguridad Stock minimo permitido de un nuevo articulo
+   * @param stockMaximo Stock maximo permitido de un nuevo articulo
+   * @throws NumeroNegativoException Salta cuando el numero de unidades o el precio de compra es negativo
    */
   Articulo(double precioCompra, double precioVenta, String descripcion, int numeroUnidades,
       int stockSeguridad, int stockMaximo) throws NumeroNegativoException {
@@ -51,7 +69,7 @@ public class Articulo {
     setNumeroUnidades(numeroUnidades);
   }
 /**
- * 
+ * Constructor de la clase articulo cuando solo especificamos el codigo
  * @param codigo
  */
   Articulo(int codigo) {
@@ -65,7 +83,7 @@ public class Articulo {
     return codigo;
   }
 /**
- * establece la variable codigo del artículo
+ * establece la variable codigo del articulo
  */
   private void setCodigo() {
     codigoGenerar += 1;
@@ -78,9 +96,9 @@ public class Articulo {
     return precioCompra;
   }
 /**
- * 
+ * Establece el precio de compra del articulo
  * @param precioCompra
- * @throws NumeroNegativoException
+ * @throws NumeroNegativoException Cuando el nuemro introducido es negativo
  */
   private void setPrecioCompra(double precioCompra) throws NumeroNegativoException {
     if (precioCompra < 0)
@@ -95,7 +113,7 @@ public class Articulo {
     return precioVenta;
   }
 /**
- * 
+ * Establece el precio de venta de un articulo
  * @param precioVenta
  */
   private void setPrecioVenta(double precioVenta) {
@@ -111,7 +129,7 @@ public class Articulo {
     return descripcion;
   }
 /**
- * 
+ * Establece la descripcion de un articulo
  * @param descripcion
  */
   private void setDescripcion(String descripcion) {
@@ -126,7 +144,7 @@ public class Articulo {
   }
 /**
  * @param cantidad
- * @throws NumeroNegativoException
+ * @throws NumeroNegativoException cuando la cantidad pasada es un numero negativo
  */
   private void setNumeroUnidades(int cantidad) throws NumeroNegativoException {
     if (cantidad < 0) {
@@ -143,7 +161,7 @@ public class Articulo {
     return stockSeguridad;
   }
 /**
- * 
+ * establece el stock de seguridad
  * @param stockSeguridad
  */
   private void setStockSeguridad(int stockSeguridad) {
@@ -157,7 +175,7 @@ public class Articulo {
     return stockMaximo;
   }
 /**
- * 
+ * Establece el stock maximo
  * @param stockMaximo
  */
   private void setStockMaximo(int stockMaximo) {
@@ -167,10 +185,8 @@ public class Articulo {
   /**
    * Este metodo incrementa el numero de unidades de un artículo
    * 
-   * @param cantidadAIncrementar
-   * @throws NumeroNegativoException
-   * @throws StockMaximoExcedidoException
-   * @throws StockMinimoIncumplidoException
+   * @param cantidadAIncrementar la cantidad en la que se va a incrementar el valor
+   * @throws NumeroNegativoException si la cantidad en la que se va a aumentar es negativa
    */
 
   void incrementar(int cantidadAIncrementar) throws NumeroNegativoException {
@@ -183,10 +199,8 @@ public class Articulo {
   /**
    * Este metodo decrementa las unidades disponibles de un artículo
    * 
-   * @param cantidadADecrementar
-   * @throws NumeroNegativoException
-   * @throws StockMaximoExcedidoException
-   * @throws StockMinimoIncumplidoException
+   * @param cantidadADecrementar la cantidad en la que se va a decrementar el valor
+   * @throws NumeroNegativoException si el numero con el que se va a decrementar es negativo
    */
 
   void decrementar(int cantidadADecrementar) throws NumeroNegativoException {
@@ -196,14 +210,18 @@ public class Articulo {
 
   }
 
-
+/**
+ * To string del articulo
+ */
   @Override
   public String toString() {
     return "Articulo [codigo=" + codigo + ", precioCompra=" + precioCompra + ", precioVenta="
         + precioVenta + ", descripcion=" + descripcion + ", numeroUnidades=" + numeroUnidades
         + ", stockSeguridad=" + stockSeguridad + ", stockMaximo=" + stockMaximo + "]";
   }
-
+/**
+ * hashCode del articulo
+ */
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -211,7 +229,9 @@ public class Articulo {
     result = prime * result + codigo;
     return result;
   }
-
+/**
+ * equals de articulo, 2 articulos son iguales si tienen el mismo codigo
+ */
   @Override
   public boolean equals(Object obj) {
     if (this == obj)

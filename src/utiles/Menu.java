@@ -5,13 +5,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 /**
- * 
- * @author Sergio Vera Jurado
  * Clase usada como menu en el que se introducen distintas opciones
+ * @author Sergio Vera Jurado
  */
 public class Menu {
-  
+  /**
+   * titulo del menu
+   */
   String titulo;
+  /**
+   * opciones del menu
+   */
   List<String> opciones;
 
   public Menu(String titulo, String... opciones) {
@@ -19,7 +23,10 @@ public class Menu {
     this.titulo = titulo;
     this.opciones = new ArrayList<>(Arrays.asList(opciones));
   }
-
+/**
+ * elige una opcion del menu
+ * @return numero de la opcion
+ */
   public int elegir() {
     
     System.out.println(this.titulo);
@@ -40,7 +47,9 @@ public class Menu {
     
     return opcion;
   }
-
+/**
+ * toString del menu
+ */
   @Override
   public String toString() {
     return "Menu [titulo=" + titulo + ", opciones=" + opciones + "]";

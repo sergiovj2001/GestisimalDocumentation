@@ -1,6 +1,10 @@
 package excepciones;
 
-
+/**
+ * si el codigo no es valido
+ * @author Sergio Vera Jurado
+ *
+ */
 public class CodigoNoValidoException extends Exception {
   /**
    * 

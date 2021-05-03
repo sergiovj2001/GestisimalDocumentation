@@ -1,5 +1,9 @@
 package excepciones;
-
+/**
+ * Si el articulo no existe
+ * @author sergio Vera Jurado
+ *
+ */
 public class ArticuloInexistenteException extends Exception {
   public ArticuloInexistenteException(String string) {
     super(string);

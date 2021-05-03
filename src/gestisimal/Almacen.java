@@ -29,15 +29,14 @@ import excepciones.ArticuloRepetidoException;
 import excepciones.CodigoNoValidoException;
 import excepciones.NumeroNegativoException;
 /**
- * Clase Almacén que realice el alta, baja, modificación, entrada de mercanc�a (incrementa
- * unidades), salida de mercanc�a (decrementa unidades). El estado será un ArrayList de art�culos.
- * Esta clase es un envoltorio de un ArrayList. Su comportamiento será: añadir artículos (no puede
- * haber dos artículos iguales), eliminar artículos, incrementar las existencias de un artículo (se
- * delega en la clase Artículo), decrementar las existencias de un art�culo (nunca por debajo de
- * cero, se delega en la clase Artículo), devolver un artículo (para mostrarlo). Para listar el
- * almacén podrá devolverse una cadena con todos los artículos del almac�n (toString).
+ * Clase Almacen que realice el alta, baja, modificacion, entrada de mercancia (incrementa
+ * unidades), salida de mercancia (decrementa unidades). El estado sera un ArrayList de artículos.
+ * Esta clase es un envoltorio de un ArrayList. Su comportamiento sera: añadir articulos (no puede
+ * haber dos artículos iguales), eliminar articulos, incrementar las existencias de un articulo (se
+ * delega en la clase Articulo), decrementar las existencias de un articulo (nunca por debajo de
+ * cero, se delega en la clase Articulo), devolver un articulo (para mostrarlo). Para listar el
+ * almacen podra devolverse una cadena con todos los articulos del almacen (toString).
  */
-
 public class Almacen {
 
   private static final String CSV_CABECERA =
@@ -45,17 +44,15 @@ public class Almacen {
   private static ArrayList<Articulo> almacen = new ArrayList<Articulo>();
 
   /**
-   * Da de alta un artículo
-   * @param precioCompra
-   * @param precioVenta
-   * @param descripcion
-   * @param numeroUnidades
-   * @param stockSeguridad
-   * @param stockMaximo
-   * @throws NumeroNegativoException
-   * @throws StockMaximoExcedidoException
-   * @throws StockMinimoIncumplidoException
-   * @throws ArticuloRepetidoException
+   * Da de alta un articulo
+   * @param precioCompra precioCompra El precio de compra de un articulo
+   * @param precioVenta El precio de venta de un articulo
+   * @param descripcion Descripción de un articulo
+   * @param numeroUnidades Cantidades disponibles del nuevo articulo
+   * @param stockSeguridad Stock minimo permitido de un nuevo articulo
+   * @param stockMaximo Stock maximo permitido de un nuevo articulo
+   * @throws NumeroNegativoException Salta cuando el numero de unidades o el precio de compra es negativo
+   * @throws ArticuloRepetidoException Salta cuando el articulo tiene el mismo codigo que otro ya creado
    */
 
   void alta(double precioCompra, double precioVenta, String descripcion, int numeroUnidades,
@@ -71,28 +68,27 @@ public class Almacen {
   }
 
   /**
-   * Elimina un articulo previamente introducido
+   * Elimina un articulo previamente introducido pasandole el codigo
    * 
-   * @param articulo
-   * @return
-   * @throws CodigoNoValidoException
+   * @param codigo sirve para identificar un articulo
+   * @return True si la operacion se ha realizado correctamente
+   * @throws CodigoNoValidoException Si el codigo introducido no existe
    */
+
   boolean eliminar(int codigo) throws CodigoNoValidoException {
     return almacen.remove(new Articulo(codigo));
 
   }
 
   /**
-   * metodo que busca un artículo y llama al metodo incrementar de 
+   * metodo que busca un articulo y llama al metodo incrementar de 
    * la clase articulo
    * @see Articulo
-   * @param cantidad
-   * @param codigo
-   * @throws NumeroNegativoException
-   * @throws StockMaximoExcedidoException
-   * @throws StockMinimoIncumplidoException
+   * @param cantidad el numero por el que se va a incrementar el articulo
+   * @param codigo el codigo del articulo que se va a incrementar
+   * @throws NumeroNegativoException Salta cuando el numero de unidades o el precio de compra es negativo
+   * @throws ArticuloInexistenteException si el codigo introducido no se encuentra  
    */
-
   void incrementarCantidad(int cantidad, int codigo)
       throws NumeroNegativoException, ArticuloInexistenteException {
     buscarArticulo(codigo).incrementar(cantidad);
@@ -101,16 +97,13 @@ public class Almacen {
   }
 
   /**
-   * metodo que busca un artículo y llama al metodo decrementar de 
+   * metodo que busca un articulo y llama al metodo decrementar de 
    * la clase articulo
    * @see Articulo 
-   * @param cantidad
-   * @param codigo
-   * @return
-   * @throws NumeroNegativoException
-   * @throws StockMaximoExcedidoException
-   * @throws StockMinimoIncumplidoException
-   * @throws ArticuloInexistenteException
+   * @param cantidad la cantidad en la que se va a decrementar
+   * @param codigo para buscar un articulo en base a su codigo
+   * @throws NumeroNegativoException Salta cuando el numero de unidades o el precio de compra es negativo
+   * @throws ArticuloInexistenteException si el codigo introducido no se encuentra  
    */
   void decrementarCantidad(int cantidad, int codigo)
       throws NumeroNegativoException, ArticuloInexistenteException {
@@ -118,9 +111,9 @@ public class Almacen {
   }
 
   /**
-   * Devuelve la posición del articulo en el arraylist segun el codigo pasado
-   * 
-   * @param codigo
+   * Devuelve la posicion del articulo en el arraylist segun el codigo pasado
+   * @param codigo para buscar el articulo
+   * @throws ArticuloInexistenteException si el codigo del articulo no existe
    */
   Articulo buscarArticulo(int codigo) throws ArticuloInexistenteException {
     try {
@@ -131,7 +124,10 @@ public class Almacen {
     }
   }
 
-
+/**
+ * toString del almacen
+ */
+  
   @Override
   public String toString() {
     return "[almacen=" + almacen + "]";
@@ -139,7 +135,7 @@ public class Almacen {
 
   /**
    * metodo que guarda los datos introducidos en un arhivo CSV
-   * @param fileName
+   * @param fileName Nombre del archivo 
    * @throws IOException
    */
 
@@ -154,7 +150,7 @@ public class Almacen {
 
   /**
    * metodo que escribe la cabecera del CSV
-   * @param file
+   * @param file Nombre del archivo
    * @throws IOException
    */
 
@@ -165,9 +161,8 @@ public class Almacen {
 
   /**
    * metodo que guarda las distintas variables de los articulos
-   * @param almacen
-   * @param file
-   * @param i
+   * @param articulo objeto de la clase articulo
+   * @param file nombre del archivo
    * @throws IOException
    */
 
@@ -184,11 +179,12 @@ public class Almacen {
 
   /**
    * metodo que carga un archivo csv previamente especificado
-   * @param fileName
+   * @param fileName nombre del archivo
    * @throws IOException
-   * @throws AlmacenCSVException
-   * @throws NumeroNegativoException
+   * @throws AlmacenCSVException si no se encuentra el csv
+   * @throws NumeroNegativoException cuando el numero es inferior a 0
    */
+
   static void cargarCSV(String fileName)
       throws AlmacenCSVException, NumeroNegativoException, IOException {
     var file = Files.newBufferedReader(Paths.get(fileName));
@@ -204,9 +200,9 @@ public class Almacen {
 
   /**
    * metodo que valida la cabecera del csv que se va ha cargar
-   * @param file
+   * @param file nombre del archivo
    * @throws IOException
-   * @throws AlmacenCSVException
+   * @throws AlmacenCSVException si no se encuentra el csv
    */
   private static void validadCabeceraCSV(BufferedReader file)
       throws IOException, AlmacenCSVException {
@@ -218,9 +214,10 @@ public class Almacen {
 
   /**
    * metodo que lee el csv introducido y crea el articulo correspondiente
-   * @param line
-   * @throws AlmacenCSVException
-   * @throws NumeroNegativoException
+   * @param line linea que se escribe
+   * @return articulo articulo que se escribe
+   * @throws AlmacenCSVException si no se encuentra el csv
+   * @throws NumeroNegativoException si el numero es inferior a 0
    */
   private static Articulo nuevoArticuloCSV(String line)
       throws AlmacenCSVException, NumeroNegativoException {
@@ -241,8 +238,8 @@ public class Almacen {
 
   /**
    * metodo que valida que las variables del csv sean las adecuadas
-   * @param line
-   * @throws AlmacenCSVException
+   * @param line linea en la que se escribe
+   * @throws AlmacenCSVException si no se encuentra el csv
    */
   private static void validarArticulosCSV(String line) throws AlmacenCSVException {
     int numeroDeCampos = line.split("\",").length;
@@ -256,8 +253,8 @@ public class Almacen {
 
   /**
    * metodo que guarda los artículos creados en un archivo xml
-   * @param fileName
-   * @throws AlmacenXMLException
+   * @param fileName nombre del archivo
+   * @throws AlmacenXMLException si no se encuentra el xml
    * @throws IOException
    */
   void guardarXML(String fileName) throws AlmacenXMLException, IOException {
@@ -277,7 +274,7 @@ public class Almacen {
 
   /**
    * metodo que crea el documento Xml
-   * @return
+   * @return el constructor del documento
    * @throws ParserConfigurationException
    */
 
@@ -300,8 +297,8 @@ public class Almacen {
 
   /**
    * metodo que guarda las distintas variables del artículo en el xml
-   * @param almacen
-   * @param xml
+   * @param articulo el articulo que se escribe
+   * @param xml el documento sobre el que se va a escribir
    */
 
   private void guardarArticuloXML(Articulo articulo, Document xml) {
@@ -326,9 +323,9 @@ public class Almacen {
 
   /**
    * Metodo que crea el campo en el xml
-   * @param atributo
-   * @param valorCampo
-   * @param articuloElement
+   * @param atributo el nombre del atributo
+   * @param valorCampo valor que se escribe
+   * @param articuloElement elemento de articulo
    */
 
   private void guardarCampoArticulo(String atributo, String valorCampo, Element articuloElement) {
@@ -340,8 +337,8 @@ public class Almacen {
 
   /**
    * Metodo que guarda el xml con el nombre especificado
-   * @param xml
-   * @param fileName
+   * @param xml documento
+   * @param fileName nombre del archivo
    * @throws IOException
    * @throws TransformerException
    */
@@ -356,10 +353,10 @@ public class Almacen {
 
   /**
    * Metodo que carga el xml especificado
-   * @param fileName
+   * @param fileName nombre del archivo
    * @throws IOException
-   * @throws AlmacenXMLException
-   * @throws NumeroNegativoException
+   * @throws AlmacenXMLException si no se encuentra el xml
+   * @throws NumeroNegativoException si el numero es negativo
    */
 
   static void cargarXml(String fileName)
@@ -378,8 +375,8 @@ public class Almacen {
 
   /**
    * metodo que crea el archivo xml
-   * @param fileName
-   * @return
+   * @param fileName nombre del archivo
+   * @return documento
    * @throws ParserConfigurationException
    * @throws IOException
    * @throws SAXException
@@ -396,9 +393,9 @@ public class Almacen {
 
   /**
    * metodo que crea el articulo en base a los datos del xml
-   * @param itemArticulo
-   * @return
-   * @throws NumeroNegativoException
+   * @param itemArticulo variable del articulo que se va a leer
+   * @return un articulo nuevo
+   * @throws NumeroNegativoException si el numero es inferior a 0
    */
   private static Articulo nuevoArticuloXML(Node itemArticulo) throws NumeroNegativoException {
     String descripcion = getCampoArticulo("Descripcion", itemArticulo);
@@ -414,9 +411,9 @@ public class Almacen {
 
   /**
    * metodo que obtiene los datos del nodo del xml
-   * @param field
-   * @param itemArticulo
-   * @return
+   * @param field campo que se va a escribir
+   * @param itemArticulo nombre de la variable del articulo
+   * @return elemento
    */
 
   private static String getCampoArticulo(String field, Node itemArticulo) {

@@ -1,5 +1,9 @@
 package excepciones;
-
+/**
+ * Si da error al llamar al xml del almacen
+ * @author Sergio Vera Jurado
+ *
+ */
 public class AlmacenXMLException extends Exception {
 
   /**

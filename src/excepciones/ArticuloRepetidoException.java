@@ -1,6 +1,10 @@
 package excepciones;
 
-
+/**
+ * Si el articulo esta repetido
+ * @author Sergio Vera Jurado
+ *
+ */
 public class ArticuloRepetidoException extends Exception {
   
   /**

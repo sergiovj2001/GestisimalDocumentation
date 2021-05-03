@@ -1,4 +1,4 @@
 /**
- * paquete excepciones con las distinas excepciones marcadas creadas.
+ * suministra las distinas excepciones checked creadas.
  */
 package excepciones;

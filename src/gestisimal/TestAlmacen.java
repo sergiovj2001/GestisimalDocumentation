@@ -12,12 +12,10 @@ import excepciones.NumeroNegativoException;
 import utiles.Menu;
 
 /**
- * 
+ * Clase test para el almacen
  * @author Sergio Vera Jurado
- * Clase test para el almacén
  *
  */
-
 public class TestAlmacen {
 
   public static void main(String[] args) throws NumeroNegativoException, ArticuloRepetidoException,
@@ -120,7 +118,7 @@ public class TestAlmacen {
     return s.nextInt();
   }
   /**
-   * metodo que pide el número de unidades
+   * metodo que pide el numero de unidades
    * @return int
    */
   private static int pedirUnidades() {
@@ -129,7 +127,7 @@ public class TestAlmacen {
     return s.nextInt();
   }
   /**
-   * metodo que pide la descripción de un artículo
+   * metodo que pide la descripcion de un artículo
    * @return string
    */
   private static String pedirDescripcion() {
@@ -138,7 +136,7 @@ public class TestAlmacen {
     return s.nextLine();
   }
   /**
-   * metodo que pide el precio de compra de un artículo
+   * metodo que pide el precio de compra de un articulo
    * @return int
    */
   private static double pedirPrecioCompra() {
@@ -147,7 +145,7 @@ public class TestAlmacen {
     return s.nextDouble();
   }
   /**
-   * metodo que pide el precio de venta de un artículo
+   * metodo que pide el precio de venta de un articulo
    * @return int
    */
   private static double pedirPrecioVenta() {
@@ -156,7 +154,7 @@ public class TestAlmacen {
     return s.nextDouble();
   }
   /**
-   * metodo que pide el codigo de un artículo
+   * metodo que pide el codigo de un articulo
    * @return int
    */
   private static int pedircodigo() {
