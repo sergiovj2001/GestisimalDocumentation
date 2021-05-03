@@ -8,7 +8,7 @@ import excepciones.NumeroNegativoException;
  * precio de compra, precio de venta, numero de unidades (nunca negativas), stock de seguridad y
  * stock maximo. Como comportamiento: Consideramos que el codigo va a generarse de forma automatica
  * en el constructor, asi no puede haber dos artículos con el mismo codigo. Esto implica que no
- * puede modificarse el codigo de un artículo, si el resto de las propiedades. Podremos mostrar el
+ * puede modificarse el codigo de un articulo, si el resto de las propiedades. Podremos mostrar el
  * articulo, por lo que necesito una representación del artículo en forma de cadena (toString).
  * @author Sergio Vera Jurado
  * @version 1.1

@@ -30,7 +30,7 @@ import excepciones.CodigoNoValidoException;
 import excepciones.NumeroNegativoException;
 /**
  * Clase Almacen que realice el alta, baja, modificacion, entrada de mercancia (incrementa
- * unidades), salida de mercancia (decrementa unidades). El estado sera un ArrayList de artículos.
+ * unidades), salida de mercancia (decrementa unidades). El estado sera un ArrayList de articulos.
  * Esta clase es un envoltorio de un ArrayList. Su comportamiento sera: añadir articulos (no puede
  * haber dos artículos iguales), eliminar articulos, incrementar las existencias de un articulo (se
  * delega en la clase Articulo), decrementar las existencias de un articulo (nunca por debajo de
@@ -252,7 +252,7 @@ public class Almacen {
   }
 
   /**
-   * metodo que guarda los artículos creados en un archivo xml
+   * metodo que guarda los articulos creados en un archivo xml
    * @param fileName nombre del archivo
    * @throws AlmacenXMLException si no se encuentra el xml
    * @throws IOException
