@@ -1,7 +1,6 @@
 package gestisimal;
 
-import excepciones.NumeroNegativoException;
-
+import gestisimal.excepciones.NumeroNegativoException;
 
 /**
  * Clase Articulo que representa a los articulos del almacen. Su estado sera: codigo, descripcion,
@@ -70,7 +69,7 @@ public class Articulo {
   }
 /**
  * Constructor de la clase articulo cuando solo especificamos el codigo
- * @param codigo
+ * @param codigo numero entero para identificar un artículo
  */
   Articulo(int codigo) {
     this.codigo = codigo;
@@ -97,7 +96,7 @@ public class Articulo {
   }
 /**
  * Establece el precio de compra del articulo
- * @param precioCompra
+ * @param precioCompra Lo que le cuesta un artículo al almacen
  * @throws NumeroNegativoException Cuando el nuemro introducido es negativo
  */
   private void setPrecioCompra(double precioCompra) throws NumeroNegativoException {
@@ -114,7 +113,7 @@ public class Articulo {
   }
 /**
  * Establece el precio de venta de un articulo
- * @param precioVenta
+ * @param precioVenta cantidad que se recibe por un artículo
  */
   private void setPrecioVenta(double precioVenta) {
     if (precioVenta < 0)
@@ -130,7 +129,7 @@ public class Articulo {
   }
 /**
  * Establece la descripcion de un articulo
- * @param descripcion
+ * @param descripcion cadena con una breve explicación sobre el producto
  */
   private void setDescripcion(String descripcion) {
     this.descripcion = descripcion;
@@ -144,7 +143,7 @@ public class Articulo {
   }
 /**
  * establece el numero de unidades
- * @param cantidad
+ * @param cantidad numero de existencias de un artículo
  * @throws NumeroNegativoException cuando la cantidad pasada es un numero negativo
  */
   private void setNumeroUnidades(int cantidad) throws NumeroNegativoException {
@@ -163,7 +162,7 @@ public class Articulo {
   }
 /**
  * establece el stock de seguridad
- * @param stockSeguridad
+ * @param stockSeguridad cantidad minima que debe haber de un articulo
  */
   private void setStockSeguridad(int stockSeguridad) {
     this.stockSeguridad = stockSeguridad;
@@ -177,7 +176,7 @@ public class Articulo {
   }
 /**
  * Establece el stock maximo
- * @param stockMaximo
+ * @param stockMaximo cantidad maxima que debe haber de un articulo
  */
   private void setStockMaximo(int stockMaximo) {
     this.stockMaximo = stockMaximo;

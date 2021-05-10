@@ -1,4 +1,4 @@
-package excepciones;
+package gestisimal.excepciones;
 
 /**
  * Si el articulo esta repetido

@@ -22,12 +22,12 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import excepciones.AlmacenCSVException;
-import excepciones.AlmacenXMLException;
-import excepciones.ArticuloInexistenteException;
-import excepciones.ArticuloRepetidoException;
-import excepciones.CodigoNoValidoException;
-import excepciones.NumeroNegativoException;
+import gestisimal.excepciones.AlmacenCSVException;
+import gestisimal.excepciones.AlmacenXMLException;
+import gestisimal.excepciones.ArticuloInexistenteException;
+import gestisimal.excepciones.ArticuloRepetidoException;
+import gestisimal.excepciones.CodigoNoValidoException;
+import gestisimal.excepciones.NumeroNegativoException;
 /**
  * Clase Almacen que realice el alta, baja, modificacion, entrada de mercancia (incrementa
  * unidades), salida de mercancia (decrementa unidades). El estado sera un ArrayList de articulos.
@@ -36,11 +36,18 @@ import excepciones.NumeroNegativoException;
  * delega en la clase Articulo), decrementar las existencias de un articulo (nunca por debajo de
  * cero, se delega en la clase Articulo), devolver un articulo (para mostrarlo). Para listar el
  * almacen podra devolverse una cadena con todos los articulos del almacen (toString).
+ * @author Sergio Vera Jurado
+ *
  */
 public class Almacen {
-
+/**
+ * cabecera del csv que se debe cumplir para que el csv sea valido
+ */
   private static final String CSV_CABECERA =
       "Descripcion,Precio compra,Precio venta,Numero unidades,Stock maximo,Stock seguridad";
+  /**
+   * objeto almacen en el que se guardan los articulos
+   */
   private static ArrayList<Articulo> almacen = new ArrayList<Articulo>();
 
   /**
@@ -111,9 +118,10 @@ public class Almacen {
   }
 
   /**
-   * Devuelve la posicion del articulo en el arraylist segun el codigo pasado
-   * @param codigo para buscar el articulo
+   * Devuelve la posición del articulo en el arraylist segun el codigo pasado
+   * @param codigo para buscar el artículo
    * @throws ArticuloInexistenteException si el codigo del articulo no existe
+   * @return el Artículo encontrado   
    */
   Articulo buscarArticulo(int codigo) throws ArticuloInexistenteException {
     try {

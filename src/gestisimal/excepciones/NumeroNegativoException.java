@@ -1,4 +1,4 @@
-package excepciones;
+package gestisimal.excepciones;
 
 /**
  * Salta si el numero es negativo
