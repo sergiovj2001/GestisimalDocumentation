@@ -1,4 +1,4 @@
-package excepciones;
+package gestisimal.excepciones;
 /**
  * Si da error al llamar al xml del almacen
  * @author Sergio Vera Jurado

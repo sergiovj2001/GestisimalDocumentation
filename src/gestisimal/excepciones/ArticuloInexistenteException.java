@@ -1,4 +1,4 @@
-package excepciones;
+package gestisimal.excepciones;
 /**
  * Si el articulo no existe
  * @author sergio Vera Jurado

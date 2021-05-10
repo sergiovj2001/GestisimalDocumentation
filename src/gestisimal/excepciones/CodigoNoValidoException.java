@@ -1,4 +1,4 @@
-package excepciones;
+package gestisimal.excepciones;
 
 /**
  * si el codigo no es valido

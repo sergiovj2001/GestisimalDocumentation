@@ -3,12 +3,12 @@ package gestisimal;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-import excepciones.AlmacenCSVException;
-import excepciones.AlmacenXMLException;
-import excepciones.ArticuloInexistenteException;
-import excepciones.ArticuloRepetidoException;
-import excepciones.CodigoNoValidoException;
-import excepciones.NumeroNegativoException;
+import gestisimal.excepciones.AlmacenCSVException;
+import gestisimal.excepciones.AlmacenXMLException;
+import gestisimal.excepciones.ArticuloInexistenteException;
+import gestisimal.excepciones.ArticuloRepetidoException;
+import gestisimal.excepciones.CodigoNoValidoException;
+import gestisimal.excepciones.NumeroNegativoException;
 import utiles.Menu;
 
 /**
